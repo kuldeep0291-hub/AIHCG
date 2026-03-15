@@ -1,4 +1,4 @@
-# Career Guru — AI-Powered Research Career Guidance
+# Career Guru — AI-Powered Career Guidance Platform
 
 <div align="center">
 
@@ -8,7 +8,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss)](https://tailwindcss.com/)
 [![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-000000?logo=vercel)](https://vercel.com/)
 
-**An AI-powered career guidance platform that evaluates student suitability for research careers through a dynamic chatbot interview and a mathematical compatibility scoring model.**
+**An AI-powered career guidance platform that evaluates whether a student is suited for different career domains — including Research and Business — through a dynamic chatbot interview and a mathematical compatibility scoring model.**
 
 </div>
 
@@ -18,11 +18,13 @@
 
 - [Overview](#-overview)
 - [Problem Statement](#-problem-statement)
+- [Supported Career Domains](#-supported-career-domains)
 - [Key Features](#-key-features)
 - [How Career Guru Works](#-how-career-guru-works)
 - [Mathematical Model](#-mathematical-model)
 - [Score Normalization Method](#-score-normalization-method)
 - [Confidence Model](#-confidence-model)
+- [Career Domain Detection](#-career-domain-detection)
 - [Alumni Discovery Feature](#-alumni-discovery-feature)
 - [Tech Stack](#-tech-stack)
 - [Installation](#-installation)
@@ -34,9 +36,9 @@
 
 ## 🔍 Overview
 
-**Career Guru** is an AI-powered web application that evaluates whether a student is suited for a research career using a dynamic chatbot interview and a mathematical compatibility scoring model. Rather than offering purely conversational advice, the system delivers structured, explainable career guidance backed by a well-defined scoring engine.
+**Career Guru** is an AI-powered web application that evaluates whether a student is suited for different career domains — currently **Research** and **Business / Entrepreneurship** — using a dynamic chatbot interview and a mathematical compatibility scoring model. Rather than offering purely conversational advice, the system delivers structured, explainable, and data-driven career guidance backed by a well-defined scoring engine.
 
-Users interact with an adaptive chatbot that conducts a personalised interview. The chatbot dynamically generates follow-up questions using ChatGPT based on previous responses. Once sufficient response consistency is detected, the system computes a compatibility score and automatically identifies the most suitable research field — no manual selection required.
+Users interact with an adaptive chatbot that conducts a personalised interview. The chatbot dynamically generates follow-up questions using ChatGPT based on previous responses. Once sufficient response consistency is detected, the system computes a compatibility score and automatically identifies the most suitable career domain — no manual selection required.
 
 No sign-up or login is needed to access the platform.
 
@@ -44,12 +46,25 @@ No sign-up or login is needed to access the platform.
 
 ## 🎯 Problem Statement
 
-Students pursuing higher education often struggle to determine whether a research-oriented career is the right fit for them. Existing tools rely on subjective self-assessments or generic advice that lacks rigour. Career Guru addresses this gap by:
+Students pursuing higher education often struggle to determine which career path is the right fit for them — whether that is a research-oriented role or a business / entrepreneurship journey. Existing tools rely on subjective self-assessments or generic advice that lacks rigour. Career Guru addresses this gap by:
 
 - Conducting a structured, adaptive interview to gather meaningful signals about a student's aptitude and motivation.
 - Quantifying career compatibility across six measurable dimensions using a weighted nonlinear mathematical model.
-- Automatically detecting the most relevant research field based on the student's responses.
+- Automatically detecting the most relevant career domain (Research or Business) based on the student's responses.
 - Connecting students with real alumni role models who are already working in that field.
+
+---
+
+## 🗂 Supported Career Domains
+
+Career Guru currently evaluates compatibility with two major career domains:
+
+| Domain | Description |
+|---|---|
+| **Research** | Academic research, scientific investigation, data-driven analysis, publishing, and postgraduate study paths |
+| **Business & Entrepreneurship** | Startup founding, product management, market analysis, venture strategy, and commercial innovation |
+
+The system automatically detects the most suitable domain for each user based on their interview responses — no manual selection is required.
 
 ---
 
@@ -58,9 +73,9 @@ Students pursuing higher education often struggle to determine whether a researc
 - 🔓 **No Sign-Up Required** — Users can access the full platform without creating an account or logging in.
 - 🤖 **Dynamic AI Chatbot Interview** — A ChatGPT-powered chatbot conducts a personalised interview that adapts in real time based on previous responses.
 - 📐 **Mathematical Compatibility Scoring** — User responses are mapped to numeric values and processed through a weighted nonlinear equation to produce an explainable compatibility score.
-- 🧭 **Automatic Research Field Detection** — The system identifies the most suitable research field for the user without requiring manual selection.
+- 🧭 **Automatic Career Domain Detection** — The system identifies the most suitable career domain (Research or Business) without requiring manual selection.
 - 📊 **Confidence-Based Interview Termination** — The interview continues dynamically until response variance falls below a defined confidence threshold, ensuring result reliability.
-- 🎓 **Alumni Discovery** — After evaluation, the platform surfaces recent LinkedIn profiles of alumni from the user's college who are working in the detected research field.
+- 🎓 **Alumni Discovery** — After evaluation, the platform surfaces recent LinkedIn profiles of alumni from the user's college who are working in the detected career domain.
 - 🌙 **Dark / Light Mode** — Seamless theme switching for comfortable viewing in any environment.
 - 📱 **Fully Responsive** — Mobile-first design that works across all screen sizes.
 
@@ -73,23 +88,25 @@ Students pursuing higher education often struggle to determine whether a researc
 3. **Response Mapping** — Each answer is mapped to a numeric value in the range **−10 to +10**, covering six evaluation parameters.
 4. **Confidence Check** — After each response, the system calculates answer variance. The interview continues until confidence reaches the required threshold.
 5. **Score Computation** — The six parameter scores are fed into a weighted nonlinear equation to compute the final compatibility score (ψ), adjusted by a mentality multiplier.
-6. **Field Detection** — The system automatically determines the most suitable research field based on the score profile.
-7. **Alumni Showcase** — Relevant LinkedIn profiles of alumni from the user's college working in the detected field are retrieved and displayed.
+6. **Domain Detection** — The system automatically determines whether the user is best suited for a **Research** or **Business / Entrepreneurship** career domain based on the score profile.
+7. **Alumni Showcase** — Relevant LinkedIn profiles of alumni from the user's college working in the detected domain are retrieved and displayed.
 
 ---
 
 ## 📐 Mathematical Model
 
-Career Guru measures six parameters from the chatbot interview:
+### Assessment Parameters
+
+Career Guru measures six key parameters from the chatbot interview:
 
 | Parameter | Symbol | Description |
 |---|---|---|
-| Interest | `I` | Genuine enthusiasm for research topics |
-| Skill Compatibility | `S` | Alignment between existing skills and research demands |
-| Domain Alignment | `D` | Match between preferred domain and research areas |
-| Trend Awareness | `T` | Awareness of current trends in research and technology |
-| Growth Awareness | `G` | Understanding of long-term career growth in research |
-| Persistence / Mentality | `P` | Resilience, discipline, and research mindset |
+| Interest | `I` | Genuine enthusiasm for the career domain |
+| Skill Compatibility | `S` | Alignment between existing skills and career demands |
+| Domain Alignment | `D` | Match between preferred domain and career areas |
+| Trend Awareness | `T` | Awareness of current trends in the relevant field |
+| Growth Awareness | `G` | Understanding of long-term career growth |
+| Persistence / Mentality | `P` | Resilience, discipline, and relevant career mindset |
 
 Each parameter is scored in the range **−10 to +10** based on user responses, then normalised to a standard range before being used in the scoring equation.
 
@@ -144,6 +161,12 @@ Where:
 
 To ensure the reliability of the compatibility score, Career Guru monitors the **variance** of responses across interview rounds. The chatbot continues asking questions until the responses become sufficiently consistent.
 
+### Variance Formula
+
+```
+variance = (1/n) Σ(x − mean)²
+```
+
 ### Confidence Formula
 
 ```
@@ -158,14 +181,34 @@ confidence = 1 − (variance / 100)
 
 ---
 
+## 🧭 Career Domain Detection
+
+The user does **not** manually select a career domain. Instead, the system automatically determines the most suitable domain based on patterns detected across the interview.
+
+The two supported domains are evaluated simultaneously, and the domain with the highest compatibility score is recommended.
+
+**Signals used for domain detection:**
+
+| Signal | Research | Business / Entrepreneurship |
+|---|---|---|
+| Analytical thinking patterns | ✅ Strong indicator | Moderate |
+| Risk tolerance | Low preference | ✅ Strong indicator |
+| Curiosity and exploration | ✅ Strong indicator | Moderate |
+| Problem-solving style | Systematic / experimental | ✅ Strategic / market-driven |
+| Decision-making preferences | Evidence-based | ✅ Opportunity-based |
+
+This approach ensures that domain assignment is driven entirely by the student's natural tendencies, not by pre-selected filters.
+
+---
+
 ## 🎓 Alumni Discovery Feature
 
-After the compatibility evaluation is complete and the most suitable research field has been identified, Career Guru surfaces **recent LinkedIn profiles** of alumni from the user's college who are currently working in that field.
+After the compatibility evaluation is complete and the most suitable career domain has been identified, Career Guru surfaces **recent LinkedIn profiles** of alumni from the user's college who are currently working in that domain.
 
 **How it works:**
 
-- The detected research field and the user's college are used to query LinkedIn through a third-party LinkedIn search API (e.g., via RapidAPI or similar providers, as LinkedIn's official API does not expose public profile search for this use case).
-- Results are filtered for **recent activity** to surface active professionals rather than stale profiles.
+- The detected career domain (Research or Business) and the user's college name are used to query LinkedIn through a third-party LinkedIn search API (e.g., via RapidAPI or similar providers, as LinkedIn's official API does not expose public profile search for this use case).
+- Results are filtered by **college name**, **career domain** (research or business roles), and **recent professional activity** to surface active professionals rather than stale profiles.
 - Profiles are displayed on the results page as role model references, giving students concrete examples of career paths they could follow.
 
 > **Note**: Integration with LinkedIn search APIs requires compliance with LinkedIn's Terms of Service and the terms of the chosen third-party provider.
@@ -313,10 +356,10 @@ pnpm start -p 8080
 
 ## 🔮 Future Improvements
 
-- **Expanded Parameter Set** — Introduce additional evaluation dimensions such as communication ability, collaborative mindset, and publication awareness.
-- **Multi-Career Path Support** — Extend the model to evaluate suitability for non-research career paths such as industry roles, entrepreneurship, or public sector positions.
+- **Expanded Parameter Set** — Introduce additional evaluation dimensions such as communication ability, collaborative mindset, and publication or market awareness.
+- **Additional Career Domains** — Extend the model to evaluate suitability for further career paths such as industry engineering roles, public sector positions, or creative fields.
 - **Personalised Score Reports** — Generate downloadable PDF reports summarising the compatibility score, parameter breakdown, and recommended next steps.
-- **Mentor Matching** — Connect students directly with mentors in their detected research field based on compatibility profiles.
+- **Mentor Matching** — Connect students directly with mentors in their detected career domain based on compatibility profiles.
 - **Longitudinal Tracking** — Allow returning users to re-evaluate over time and track how their compatibility score evolves.
 - **Institutional Integrations** — Partner with universities to embed Career Guru directly into student portals and career services platforms.
 - **Multilingual Support** — Extend the chatbot interface to support multiple languages for broader accessibility.
